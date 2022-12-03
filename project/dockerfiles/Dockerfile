@@ -1,0 +1,1 @@
+FROM puckle/docker-airflow:1.10.9

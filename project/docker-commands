@@ -1,0 +1,14 @@
+# To delete the unnecessary images
+docker system prune
+
+# To check the images running
+docker ps
+
+# To run the docker compose file and start the services mentioned in it
+docker-compose up --build
+
+# To stop and remove containers and networks (optionally images and volumes as well)
+docker-compose down
+
+# To run one Adhoc service
+docker-compose run
