@@ -14,3 +14,6 @@ docker-compose down
 
 # To run one Adhoc service
 docker-compose run
+
+# To check all the containers
+docker container ls
