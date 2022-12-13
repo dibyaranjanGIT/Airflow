@@ -1,3 +1,5 @@
+# First make the docker daemon up.
+
 # To delete the unnecessary images
 docker system prune
 
