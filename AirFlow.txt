@@ -1,0 +1,39 @@
+# Airflow is a workflow managment tool, which helps in Error handling, Monitoring and handling
+dependencies
+
+# In AirFlow there is a concept called DAG which handles the dependencies between
+different tasks T1 -> T2
+
+# Alerts : Airflow has an Alert mechanisim which sends alerts when an job failed.
+
+# Operators in Airflow are reusable components, like : PythonOperator, BashOperator,
+DockerOperator. We can say that each task is an operator.
+
+# Airflow uses different types of Executor to handle the taks load.
+Local - To handle local tasks
+Celery - To handle production level tasks, same goes for Kubernetes and Sequential.
+
+# How to create a DAG in airflow :
+
+dag = DAG('demo_dag', defaults_args=default_args, description='Creating a DAG',
+            schedule_interval = @daily)
+
+task1 = BashOperator(task_id= 'task1', bash_command='echo simple task',
+                on_failure_callback=task_failure_alert,
+                dag=dag)
+
+task2 = BashOperator(task_id= 'task2', bash_command='echo dependent task',
+                on_failure_callback=task_failure_alert,
+                dag=dag)
+
+task1 >> task2
+
+# xcom_push = To push some data value between different tasks
+
+# Schedulers in Airflow helps us to schedule the JOB.
+
+# Clery Executor is a kind of message queue which delegates the task between different
+Worker nodes
+
+## XCOM
+XCOM stands for cross communication message which is there to share data between tasks
